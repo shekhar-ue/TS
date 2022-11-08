@@ -1,10 +1,14 @@
 import React, { useMemo } from "react";
-import { View, FlatList, Image } from "react-native";
+import { View, FlatList, Image, Text } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import Icon from "react-native-dynamic-vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as NavigationService from "react-navigation-helpers";
 import RNBounceable from "@freakycoder/react-native-bounceable";
+// var UserExperior = require('react-native-userexperior');
+import UserExperior from 'react-native-userexperior';
+
+
 /**
  * ? Local Imports
  */
@@ -15,7 +19,7 @@ import CardItem from "./components/card-item/CardItem";
  * ? Shared Imports
  */
 import { SCREENS } from "@shared-constants";
-import Text from "@shared-components/text-wrapper/TextWrapper";
+// import Text from "@shared-components/text-wrapper/TextWrapper";
 import fonts from "@fonts";
 
 const profileURI =
@@ -57,6 +61,7 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
   const List = () => (
     <View style={styles.listContainer}>
       <FlatList
+        // ref={view=>UserExperior.addInSecureViewBucket(view)}
         data={MockData}
         renderItem={({ item }) => (
           <CardItem data={item} onPress={handleItemPress} />
@@ -67,10 +72,12 @@ const HomeScreen: React.FC<HomeScreenProps> = () => {
 
   const Welcome = () => (
     <>
-      <Text h1 bold color={colors.text}>
+      <Text h1 bold color={colors.text}
+        ref={view=>UserExperior.addInSecureViewBucket(view)}>
         Hello Kuray
       </Text>
       <Text
+        ref={view=>UserExperior.addInSecureViewBucket(view)}
         fontFamily={fonts.montserrat.lightItalic}
         color={colors.placeholder}
       >

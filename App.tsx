@@ -8,6 +8,9 @@ import SplashScreen from "react-native-splash-screen";
 import Navigation from "./src/navigation";
 import { isAndroid } from "@freakycoder/react-native-helpers";
 
+var UserExperior = require('react-native-userexperior');
+UserExperior.startRecording("76338b1c-c45c-48a9-bfcb-9603d01756a4");
+
 LogBox.ignoreAllLogs();
 
 const App = () => {
